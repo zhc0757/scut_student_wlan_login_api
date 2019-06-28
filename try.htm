@@ -1,0 +1,54 @@
+<!--用于一键登录校园无线网-->
+<!--使用前，请先修改json.js里的用户名和密码-->
+<html>
+<body>
+<script src="json.js"></script>
+<script>
+//发送POST请求跳转到指定页面
+
+function httpPost(URL, PARAMS)
+{
+
+    var temp = document.createElement("form");
+
+    temp.action = URL;
+
+    temp.method = "post";
+
+    temp.style.display = "none";
+
+
+    for (var x in PARAMS) {
+
+        var opt = document.createElement("textarea");
+
+        opt.name = x;
+
+        opt.value = PARAMS[x];
+
+        temp.appendChild(opt);
+
+    }
+
+
+    document.body.appendChild(temp);
+
+    temp.submit();
+
+
+    //return temp;
+
+}
+/*
+xmlhttp=new XMLHttpRequest();
+xmlhttp.open("GET","table.json",false);
+xmlhttp.send();
+var para=JSON.parse(xmlhttp.responseText);
+*/
+loginUrl="https://s.scut.edu.cn:801/eportal/?c=ACSetting&a=Login&wlanuserip=&wlanacip=&wlanacname=WX6108E-slot5-AC&redirect=&session=&vlanid=scut-student&port=&iTermType=1&protocol=https:";
+httpPost(loginUrl, para);
+
+</script>
+
+</body>
+</html>
